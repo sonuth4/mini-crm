@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sonu’s CRM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/" aria-label="Sonu’s CRM home">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span class="brand-name">Sonu’s CRM</span>
+      </a>
+      <button type="button" id="addBtn" class="btn light">Add lead</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-head">
+      <h1>Leads dashboard</h1>
+      <p>Follow every enquiry from first message to customer.</p>
+    </div>
+
+    <section class="stats" aria-label="Overview">
+      <div class="stat stat-total"><span class="stat-number" id="statTotal">–</span><span class="stat-label">Total leads</span></div>
+      <div class="stat stat-new"><span class="stat-number" id="statNew">–</span><span class="stat-label">New</span></div>
+      <div class="stat stat-converted"><span class="stat-number" id="statConverted">–</span><span class="stat-label">Converted</span></div>
+    </section>
+
+    <p id="banner" class="banner" role="alert" hidden></p>
+
+    <section class="toolbar" aria-label="Search and filter">
+      <label class="field grow">
+        <span class="sr-only">Search leads</span>
+        <input type="search" id="search" placeholder="Search by name or email" autocomplete="off">
+      </label>
+      <label class="field">
+        <span class="sr-only">Filter by status</span>
+        <select id="statusFilter">
+          <option value="">All statuses</option>
+          <option>New</option>
+          <option>Contacted</option>
+          <option>Converted</option>
+        </select>
+      </label>
+    </section>
+
+    <section id="listArea" aria-live="polite">
+      <p id="message" class="message" hidden></p>
+      <div id="messageAction" hidden></div>
+      <table id="table" hidden>
+        <thead>
+          <tr><th>Lead</th><th>Business</th><th>Contact</th><th>Status</th><th><span class="sr-only">Actions</span></th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <p id="toast" class="toast" role="status" hidden></p>
+
+  <dialog id="dialog" aria-labelledby="dialogTitle">
+    <form id="form" novalidate>
+      <h2 id="dialogTitle">Add lead</h2>
+
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="off">
+        <p class="error" id="error-name"></p>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="off">
+        <p class="error" id="error-email"></p>
+      </div>
+      <div class="field">
+        <label for="phone">Phone number</label>
+        <input id="phone" name="phone" type="tel" autocomplete="off">
+        <p class="error" id="error-phone"></p>
+      </div>
+      <div class="field">
+        <label for="business">Business name</label>
+        <input id="business" name="business" autocomplete="off">
+        <p class="error" id="error-business"></p>
+      </div>
+      <div class="field">
+        <label for="status">Status</label>
+        <select id="status" name="status">
+          <option>New</option>
+          <option>Contacted</option>
+          <option>Converted</option>
+        </select>
+        <p class="error" id="error-status"></p>
+      </div>
+
+      <p class="error form-error" id="formError" role="alert"></p>
+
+      <div class="actions">
+        <button type="button" id="cancelBtn" class="btn">Cancel</button>
+        <button type="submit" id="saveBtn" class="btn primary">Save lead</button>
+      </div>
+    </form>
+  </dialog>
+
+    <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2026 Sonu’s CRM</span>
+      <span class="footer-dot" aria-hidden="true">•</span>
+      <span>Built for the SHL Tech Internship</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
